@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./FinanceStyling.css";
+import FinanceReturnItem from "./FinanceReturnItem,jsx";
 
 function FinanceReturnList(props) {
   const [currentPrice, setCurrentPrice] = useState([]);
 
-
-  console.log(props.stock)
   useEffect(() => {
     fetch(
-      "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + 
-      "IBM" + 
-      "&apikey=demo"
+      "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" +
+        "IBM" +
+        "&apikey=demo"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -24,32 +23,32 @@ function FinanceReturnList(props) {
   return (
     <div className="FinanceReturnListDesign">
       <h2> Stock List </h2>
-
       {props.items.map((item, index) => {
-        const currentPriceFloat = currentPrice; //already in float
-        const itemPriceFloat = parseFloat(item.price);
-        const profitLoss = currentPriceFloat - itemPriceFloat;
+        //   const currentPriceFloat = currentPrice; //already in float
+        //   const itemPriceFloat = parseFloat(item.price);
+        //   const profitLoss = currentPriceFloat - itemPriceFloat;
 
-      //Applying inline style just for profit/losses
-      const profitLossStyle = {
-        color: profitLoss >= 0 ? 'green' : 'red'
-        };
+        // //Applying inline style just for profit/losses
+        // const profitLossStyle = {
+        //   color: profitLoss >= 0 ? 'green' : 'red'
+        //   };
 
-        return (
+        //   return (
 
-          <li key={index} className="listItem">
-            <strong>Symbol: {item.stock} </strong>
-            <br />
-            Quantity: {item.qty} <br />
-            Purchase Price: {item.price} <br />
-            Current Price: {currentPrice} <br />
-            <br />
-            <span style = {profitLossStyle}>
-            Profit/Loss: {profitLoss.toFixed(2)}
-            </span>
-          </li>
-        );
+        //     <li key={index} className="listItem">
+        //       <strong>Symbol: {item.stock} </strong>
+        //       <br />
+        //       Quantity: {item.qty} <br />
+        //       Purchase Price: {item.price} <br />
+        //       Current Price: {currentPrice} <br />
+        //       <br />
+        //       <span style = {profitLossStyle}>
+        //       Profit/Loss: {profitLoss.toFixed(2)}
+        //       </span>
+        //     </li>
+        <FinanceReturnItem />;
       })}
+      )
     </div>
   );
 }
