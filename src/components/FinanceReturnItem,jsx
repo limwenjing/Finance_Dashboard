@@ -1,4 +1,4 @@
-// function FinanceReturnItem(props) {
+function FinanceReturnItem(props) {
 //   const currentPriceFloat = currentPrice; //already in float
 //   const itemPriceFloat = parseFloat(item.price);
 //   const profitLoss = currentPriceFloat - itemPriceFloat;
@@ -19,5 +19,5 @@
 //       <span style={profitLossStyle}>Profit/Loss: {profitLoss.toFixed(2)}</span>
 //     </li>
 //   );
-// }
-// export default FinanceReturnItem;
+}
+export default FinanceReturnItem;
