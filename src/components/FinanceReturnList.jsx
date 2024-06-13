@@ -4,9 +4,13 @@ import "./FinanceStyling.css";
 function FinanceReturnList(props) {
   const [currentPrice, setCurrentPrice] = useState([]);
 
+
+  console.log(props.stock)
   useEffect(() => {
     fetch(
-      "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo"
+      "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + 
+      "IBM" + 
+      "&apikey=demo"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -15,7 +19,7 @@ function FinanceReturnList(props) {
         setCurrentPrice(Current_Price.toFixed(2));
       })
       .catch((error) => console.log("Error:", error));
-  }, []);
+  }, [props.stock]);
 
   return (
     <div className="FinanceReturnListDesign">

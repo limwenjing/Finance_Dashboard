@@ -29,7 +29,7 @@ function FinanceDashboard() {
 
             </div>
 
-            <FinanceReturnList items={items} />
+            <FinanceReturnList items={items} stock={stock} />
             
             
 
