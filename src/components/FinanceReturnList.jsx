@@ -26,7 +26,7 @@ function FinanceReturnList(props) {
         const itemPriceFloat = parseFloat(item.price);
         const profitLoss = currentPriceFloat - itemPriceFloat;
 
-      //Applying inline style just for profit/loss  
+      //Applying inline style just for profit/losses
       const profitLossStyle = {
         color: profitLoss >= 0 ? 'green' : 'red'
         };
