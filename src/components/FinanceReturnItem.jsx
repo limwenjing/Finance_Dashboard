@@ -9,10 +9,12 @@ function FinanceReturnItem(props) {
   useEffect(() => {
     fetch(
       "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" +
-        //   TODO: Replace "IBM" with the stock symbol from the props.item.stock
-        "IBM" +
-        // TODO: Replace "demo" with your own API key
-        "&apikey=demo"
+        //Can use "IBM" instead to test
+        props.item.stock +
+        // can use "demo" to test IBM data
+        "&apikey=" +
+        //your API Key
+        "833OF71I13C07V57"
     )
       .then((response) => response.json())
       .then((data) => {
