@@ -46,7 +46,11 @@ function FinanceDashboard() {
         </button>
       </div>
 
-      <FinanceReturnList items={items} stock={stock} />
+      {items.length === 0 ? (
+        <p>No stocks added yet</p>
+      ) : (
+        <FinanceReturnList items={items} stock={stock} />
+      )}
     </div>
   );
 }
